@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 
 export const Card = (props) => {
   return (
-    <Col sm={4}>
+    <Col md={4}>
       <img
         src={`https://codingapple1.github.io/shop/shoes${props.idx + 1}.jpg`}
         width="80%"
