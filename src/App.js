@@ -2,8 +2,9 @@ import { Container, Nav, Navbar, Row } from "react-bootstrap";
 import "./App.css";
 import { Card } from "./components/Card";
 import data from "./data";
-import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Detail } from "./pages/Detail";
+import { Event } from "./pages/Event";
 
 function App() {
   let navigate = useNavigate();
@@ -44,6 +45,13 @@ function App() {
         />
 
         <Route path="/detail" element={<Detail />} />
+
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
+          <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
+        </Route>
+
+        <Route path="*" element={<div>404</div>} />
       </Routes>
     </div>
   );
