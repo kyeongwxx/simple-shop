@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import "./App.css";
 
 function App() {
@@ -14,6 +14,41 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+
+      <div className="main-bg"></div>
+
+      <Container>
+        <Row>
+          <Col sm={4}>
+            <img
+              src="https://codingapple1.github.io/shop/shoes1.jpg"
+              width="80%"
+              alt=""
+            />
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+          <Col sm={4}>
+            <img
+              src="https://codingapple1.github.io/shop/shoes2.jpg"
+              width="80%"
+              alt=""
+            />
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+          <Col sm={4}>
+            <img
+              src="https://codingapple1.github.io/shop/shoes3.jpg"
+              width="80%"
+              alt=""
+            />
+            <h4>상품명</h4>
+            <p>상품설명</p>
+          </Col>
+        </Row>
+      </Container>
+      
     </div>
   );
 }
