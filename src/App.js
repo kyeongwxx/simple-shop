@@ -1,5 +1,8 @@
-import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
+import { Container, Nav, Navbar, Row } from "react-bootstrap";
 import "./App.css";
+import { Card } from "./components/Card";
+import data from "./data";
+
 
 function App() {
   return (
@@ -19,36 +22,11 @@ function App() {
 
       <Container>
         <Row>
-          <Col sm={4}>
-            <img
-              src="https://codingapple1.github.io/shop/shoes1.jpg"
-              width="80%"
-              alt=""
-            />
-            <h4>상품명</h4>
-            <p>상품설명</p>
-          </Col>
-          <Col sm={4}>
-            <img
-              src="https://codingapple1.github.io/shop/shoes2.jpg"
-              width="80%"
-              alt=""
-            />
-            <h4>상품명</h4>
-            <p>상품설명</p>
-          </Col>
-          <Col sm={4}>
-            <img
-              src="https://codingapple1.github.io/shop/shoes3.jpg"
-              width="80%"
-              alt=""
-            />
-            <h4>상품명</h4>
-            <p>상품설명</p>
-          </Col>
+          {data.map((el, idx) => (
+            <Card el={el} idx={idx} key={idx}/>
+          ))}
         </Row>
       </Container>
-      
     </div>
   );
 }
