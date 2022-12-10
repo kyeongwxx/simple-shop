@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 export const Event = () => {
   return (
     <>
-      <div>오늘의 이벤트</div>
+      <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
     </>
   );
