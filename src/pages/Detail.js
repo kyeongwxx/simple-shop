@@ -14,13 +14,17 @@ const Button = styled.button`
 export const Detail = (props) => {
   let { id } = useParams();
   let product = props.data.find((el) => el.id === +id);
-  
+
   let [sale, setSale] = useState(true);
 
   useEffect(() => {
-    setInterval(() => {
+    let timer = setInterval(() => {
       setSale(false);
     }, 2000);
+
+    return () => {
+      clearTimeout(timer)
+    }
   });
 
   return (
