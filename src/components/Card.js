@@ -10,7 +10,7 @@ export const Card = (props) => {
       />
       <h4>{props.el.title}</h4>
       <p>{props.el.content}</p>
-      <p>{props.el.price.toLocaleString()}원</p>
+      <p>{props.el.price}원</p>
     </Col>
   );
 };

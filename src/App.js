@@ -5,14 +5,31 @@ import data from "./data";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Detail } from "./pages/Detail";
 import { Event } from "./pages/Event";
+import { Button } from "./components/Button";
+import axios from "axios";
+import { useState } from "react";
 
 function App() {
+  let [products, setProducts] = useState(data);
+
   let navigate = useNavigate();
   let onClickMoveToHome = () => {
     navigate("/");
   };
   let onClickMoveToDetail = () => {
     navigate("/detail");
+  };
+
+  let fetchProducts = () => {
+    axios
+      .get("https://codingapple1.github.io/shop/data2.json")
+      .then((response) => {
+        let copy = [...products, ...response.data]
+        setProducts(copy)
+      })
+      .catch(() => {
+        console.log("Error");
+      });
   };
 
   return (
@@ -35,16 +52,19 @@ function App() {
               <div className="main-bg"></div>
               <Container>
                 <Row>
-                  {data.map((el, idx) => (
+                  {products.map((el, idx) => (
                     <Card el={el} idx={idx} key={idx} />
                   ))}
                 </Row>
               </Container>
+              <Button bg="#A9AF7E" onClick={fetchProducts}>
+                데이터 요청
+              </Button>
             </>
           }
         />
 
-        <Route path="/detail/:id" element={<Detail data={data}/>} />
+        <Route path="/detail/:id" element={<Detail products={products} />} />
 
         <Route path="/event" element={<Event />}>
           <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />

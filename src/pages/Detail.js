@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-
-const Button = styled.button`
-  background: ${(props) => props.bg};
-  color: ${(props) => (props.bg === "#DC3545" ? "white" : "black")};
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-`;
+import { Button } from "../components/Button";
 
 export const Detail = (props) => {
   let { id } = useParams();
