@@ -11,6 +11,7 @@ import { useState } from "react";
 
 function App() {
   let [products, setProducts] = useState(data);
+  let [clickCount, setClickCount] = useState(0);
 
   let navigate = useNavigate();
   let onClickMoveToHome = () => {
@@ -21,15 +22,24 @@ function App() {
   };
 
   let fetchProducts = () => {
+    let pageNumber;
+    if(clickCount === 0) pageNumber = 2
+    if(clickCount === 1) pageNumber = 3
     axios
-      .get("https://codingapple1.github.io/shop/data2.json")
+      .get(`https://codingapple1.github.io/shop/data${pageNumber}.json`)
       .then((response) => {
-        let copy = [...products, ...response.data]
-        setProducts(copy)
+        console.log(response.data)
+        let copy = [...products, ...response.data];
+        setProducts(copy);
       })
       .catch(() => {
         console.log("Error");
       });
+  };
+
+  let onClickCountUp = () => {
+    setClickCount(clickCount + 1);
+    console.log(clickCount)
   };
 
   return (
@@ -57,9 +67,15 @@ function App() {
                   ))}
                 </Row>
               </Container>
-              <Button bg="#A9AF7E" onClick={fetchProducts}>
+              {clickCount < 2 && <Button
+                bg="#A9AF7E"
+                onClick={() => {
+                  fetchProducts();
+                  onClickCountUp();
+                }}
+              >
                 데이터 요청
-              </Button>
+              </Button>}
             </>
           }
         />
