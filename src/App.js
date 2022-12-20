@@ -80,7 +80,7 @@ function App() {
           }
         />
 
-        <Route path="/detail/:id" element={<Detail products={products} />} />
+        <Route path="/detail/:id" element={<Detail data={data} />} />
 
         <Route path="/event" element={<Event />}>
           <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
