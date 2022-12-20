@@ -10,6 +10,7 @@ export const Detail = (props) => {
 
   let [sale, setSale] = useState(true);
   let [tabContent, setTabContent] = useState(0);
+  const [scale, setScale] = useState('');
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -21,8 +22,19 @@ export const Detail = (props) => {
     };
   });
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setScale('scale-end');
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      setScale('');
+    };
+  }, [props.tabContent]);
+
   return (
-    <Container>
+    <Container className={`scale-start ${scale}`}>
       {sale && <div className='alert alert-warning'>2초이내 구매시 할인</div>}
       <Row>
         <Col md={6}>
@@ -60,7 +72,7 @@ export const Detail = (props) => {
         </Nav.Item>
       </Nav>
 
-      <TabContent tabContent={tabContent} />
+      <TabContent tabContent={tabContent}/>
     </Container>
   );
 };

@@ -16,3 +16,21 @@
   background-size: cover;
   background-position: center;
 }
+
+.opacity-start {
+  opacity: 0;
+}
+
+.opacity-end {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.scale-start {
+  transform: scale(0);
+}
+
+.scale-end {
+  transform: scale(1);
+  transition: all 0.5s;
+}

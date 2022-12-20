@@ -10,18 +10,18 @@ import axios from "axios";
 import { useState } from "react";
 
 function App() {
-  let [products, setProducts] = useState(data);
-  let [clickCount, setClickCount] = useState(0);
+  const [products, setProducts] = useState(data);
+  const [clickCount, setClickCount] = useState(0);
 
-  let navigate = useNavigate();
-  let onClickMoveToHome = () => {
+  const navigate = useNavigate();
+  const onClickMoveToHome = () => {
     navigate("/");
   };
-  let onClickMoveToDetail = () => {
+  const onClickMoveToDetail = () => {
     navigate("/detail");
   };
 
-  let fetchProducts = () => {
+  const fetchProducts = () => {
     let pageNumber;
     if(clickCount === 0) pageNumber = 2
     if(clickCount === 1) pageNumber = 3
