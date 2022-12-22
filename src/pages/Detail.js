@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { TabContent } from '../components/TabContent';
+import { Context1 } from '../App'
 
 export const Detail = (props) => {
+  const {stock} = useContext(Context1)
   let { id } = useParams();
   let product = props.data.find((el) => el.id === +id);
 
@@ -72,7 +74,7 @@ export const Detail = (props) => {
         </Nav.Item>
       </Nav>
 
-      <TabContent tabContent={tabContent}/>
+      <TabContent tabContent={tabContent} />
     </Container>
   );
 };

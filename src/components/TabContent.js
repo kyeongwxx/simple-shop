@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Context1 } from '../App';
 
 export const TabContent = (props) => {
+  const {stock} = useContext(Context1)
   const [opacity, setOpacity] = useState('');
 
   useEffect(() => {
@@ -16,9 +18,9 @@ export const TabContent = (props) => {
 
   return (
     <div className={`opacity-start ${opacity}`}>
-      {props.tabContent === 0 && <div>내용0</div>}
-      {props.tabContent === 1 && <div>내용1</div>}
-      {props.tabContent === 2 && <div>내용2</div>}
+      {props.tabContent === 0 && <div>{stock[0]}</div>}
+      {props.tabContent === 1 && <div>{stock[1]}</div>}
+      {props.tabContent === 2 && <div>{stock[2]}</div>}
     </div>
   );
 };
