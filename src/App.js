@@ -8,6 +8,7 @@ import { Event } from './pages/Event';
 import { Button } from './components/Button';
 import axios from 'axios';
 import { createContext, useState } from 'react';
+import { Cart } from './pages/Cart';
 
 export const Context1 = createContext();
 
@@ -93,6 +94,8 @@ function App() {
             </Context1.Provider>
           }
         />
+
+        <Route path='/cart' element={<Cart />}/>
 
         <Route path='/event' element={<Event />}>
           <Route path='one' element={<div>첫 주문시 양배추즙 서비스</div>} />
