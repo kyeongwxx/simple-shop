@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 export const Cart = () => {
   const data = useSelector((state) => state.data);
-  console.log(data);
 
   return (
     <Table>
@@ -15,16 +14,13 @@ export const Cart = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{data[0].id}</td>
-          <td>{data[0].name}</td>
-          <td>{data[0].count}</td>
-        </tr>
-        <tr>
-          <td>{data[1].id}</td>
-          <td>{data[1].name}</td>
-          <td>{data[1].count}</td>
-        </tr>
+        {data.map((el, idx) => (
+          <tr key={idx}>
+            <td>{el.id}</td>
+            <td>{el.name}</td>
+            <td>{el.count}</td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );
